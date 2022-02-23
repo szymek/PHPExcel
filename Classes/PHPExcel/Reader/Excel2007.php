@@ -432,7 +432,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                 $propertyName = (string) $cellDataOfficeAttributes['name'];
                                 $cellDataOfficeChildren = $xmlProperty->children('http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes');
                                 $attributeType = $cellDataOfficeChildren->getName();
-                                $attributeValue = (string) $cellDataOfficeChildren->{$attributeType};
+                                $attributeValue = (string) $cellDataOfficeChildren->$attributeType;
                                 $attributeValue = PHPExcel_DocumentProperties::convertProperty($attributeValue, $attributeType);
                                 $attributeType = PHPExcel_DocumentProperties::convertPropertyType($attributeType);
                                 $docProps->setCustomProperty($propertyName, $attributeValue, $attributeType);
